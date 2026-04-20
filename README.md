@@ -24,7 +24,7 @@ The purpose of this program is to batch extract, transform, and upload relevant 
 Data flow summary:
 1. The program extracts every contract the user has access to within their CEMAR account in JSON format via the CEMAR API. This JSON data is then transformed into a pandas DataFrame, which is also made available as a CSV file.
 2. In the subsequent data extraction scripts (task orders, etc.), the contracts DataFrame is used to navigate CEMAR using each contract ID.
-3. Each subsequent API call uses this ID to access each contract’s data, extracting the required information in JSON format. During this process, each row has a new data point added—the contract ID it relates to—ensuring all data points can later be schema‑mapped. This data is then transformed into a pandas DataFrame and made available as a CSV file.
+3. Each subsequent API call uses this ID to access each contract’s data, extracting the required information in JSON format. During this process, each row has a new data point added — the contract ID it relates to — ensuring all data points can later be schema‑mapped. This data is then transformed into a pandas DataFrame and made available as a CSV file.
 4. Once all extraction scripts have completed, the DataFrames are prepared for upload to the identified Smartsheet sheets using the Sheet ID.
 5. The data is transformed into a Smartsheet‑compatible format. Transformations include:
     Creation of new row objects
