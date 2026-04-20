@@ -16,7 +16,7 @@ Instructions:
 
 6. Upload these files to Smartsheet using the “Import Microsoft Excel…” method within a Smartsheet workspace. This will create the necessary sheets that the program will overwrite on each future upload.
 7. From the uploaded sheets, extract their Sheet ID from the sheet properties and input these IDs into your .env file.
-8.  Future runs will now overwrite data directly into these sheets. CSV file creation can be commented out in the code if preferred.
+8. Future runs will now overwrite data directly into these sheets. CSV file creation can be commented out in the code if preferred.
 
 Purpose of the program:
 The purpose of this program is to batch extract, transform, and upload relevant contract data from CEMAR into Smartsheet, where it can be used for BI reporting, analysis, and data mirroring within a separate business environment. Only the mirroring of contracts, task orders, and compensation events has been scripted so far, as this is all that is currently required.
