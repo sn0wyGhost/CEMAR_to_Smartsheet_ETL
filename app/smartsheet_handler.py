@@ -41,9 +41,6 @@ class handler:
         for column in columns:
             id = sheet.get_column_by_title(column).id
             column_ids.append(id)
-
-        # Clean dataframe
-        # cleaned_dataframe = clean_for_json(dataframe)
         
         # Create new rows for upload, disregard cells containing arrays
         upload_rows = []
@@ -86,20 +83,3 @@ class handler:
             self.smart.Sheets.delete_rows(sheet_id, batch, True)
 
         print(f"{sheet.name} sheet successfully updated")
-
-    
-def clean_for_json(df: pd.DataFrame) -> pd.DataFrame:
-    # Replace NaN/NaT/inf/-inf with None
-    cleaned = df.copy()
-
-    # Replace inf and -inf (they’re not JSON-compliant either)
-    cleaned = cleaned.replace([np.inf, -np.inf], np.nan)
-
-    # Convert datetimes; NaT -> None; valid datetimes -> ISO8601 string
-    for col in cleaned.select_dtypes(include=["datetime64[ns]", "datetime64[ns, UTC]"]).columns:
-        cleaned[col] = cleaned[col].apply(lambda x: x.isoformat() if pd.notna(x) else None)
-
-    # Convert remaining NaN to None
-    cleaned = cleaned.where(pd.notnull(cleaned), None)
-
-    return cleaned
