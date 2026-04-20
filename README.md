@@ -33,5 +33,5 @@ Data flow summary:
         DateTime values are reformatted into strings (Smartsheet reliably converts date‑like strings into date fields upon upload)
    
 6. The row objects are uploaded in batches of 250. Old rows are then deleted in batches of 250. This ensures only recent data is retained. This upload method was chosen over creating new sheets or retaining old data to ensure:
-    Sheet references within Smartsheet are not broken or require reassignment
+    Sheet references relevant to the sheet are not broken or require reassignment
     Consistent uploads over time do not cause the sheet to exceed the 20,000‑row limit
