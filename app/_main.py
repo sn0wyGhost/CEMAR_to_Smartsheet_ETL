@@ -3,7 +3,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 import pandas as pd
-import json
 
 ### Define dependencies ###
 BASE_DIR = Path(__file__).resolve().parent.parent
