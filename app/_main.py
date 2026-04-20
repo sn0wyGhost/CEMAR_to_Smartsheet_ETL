@@ -31,7 +31,7 @@ contracts_json = client.GetContracts(pageNumber, pageSize)
 
 # Create contracts data frame
 contracts_df = pd.DataFrame(contracts_json["data"])
-# contracts_df.to_csv("contracts.csv", index=False, encoding="utf-8")
+contracts_df.to_csv("contracts.csv", index=False, encoding="utf-8")
 
 # Get task orders data
 task_orders_data = []
@@ -47,7 +47,7 @@ for row in contracts_df.itertuples(index=False):
 
 # Create task orders data frame
 task_orders_df = pd.DataFrame(task_orders_data)
-# task_orders_df.to_csv("task_orders.csv", index=False, encoding="utf-8")
+task_orders_df.to_csv("task_orders.csv", index=False, encoding="utf-8")
 
 # Get compensation events data
 compensation_events_data = []
@@ -63,7 +63,7 @@ for row in contracts_df.itertuples(index=False):
 
 # Create task orders data frame
 compensation_events_df = pd.DataFrame(compensation_events_data)
-# compensation_events_df.to_csv("compensation_events.csv", index=False, encoding="utf-8")
+compensation_events_df.to_csv("compensation_events.csv", index=False, encoding="utf-8")
 
 # Upload data to pre-established Smartsheet sheets
 from smartsheet_handler import handler
